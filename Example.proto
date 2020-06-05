@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+message Item
+{
+    int32 id = 1;//道具ID
+    int32 count = 2;//道具数量
+}
+
+message Player
+{
+    enum State {
+        Ok=0;
+        Dead=1;
+        Home=2;
+    }
+
+    message One
+    {
+        int64 id = 1;//some id
+        string hello = 2;//hello
+
+        enum State2 {
+            Ok=0;
+            Dead=1;
+            Home=2;
+        }
+    }
+
+    int64 uid = 1;//玩家唯一id
+    string name = 2;//玩家名字
+    float luckyrate = 3;//玩家幸运值
+    bool ok = 4;
+    repeated Item items = 5;//玩家道具列表
+}
+
+enum Enum1 {
+    A=0;
+    B=1;
+    C=2;
+}
