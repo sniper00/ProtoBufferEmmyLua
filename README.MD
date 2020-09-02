@@ -56,6 +56,8 @@ message Player
     string name = 2;//玩家名字
     float luckyrate = 3;//玩家幸运值
     bool ok = 4;
+    repeated Item items = 5;//玩家道具列表
+    map<int32, int32> values = 6;
 }
 
 enum Enum1 {
@@ -63,6 +65,7 @@ enum Enum1 {
     B=1;
     C=2;
 }
+
 ```
 
 ProtoIntelliSense.lua
@@ -84,6 +87,8 @@ print(One)
 ---@field public name string @玩家名字
 ---@field public luckyrate number @玩家幸运值
 ---@field public ok boolean
+---@field public items Item[] @玩家道具列表
+---@field public values table<integer, integer>
 local Player = {}
 print(Player)
 ```
