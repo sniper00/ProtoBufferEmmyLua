@@ -16,6 +16,7 @@ print(One)
 ---@field public luckyrate number @玩家幸运值
 ---@field public ok boolean
 ---@field public items Item[] @玩家道具列表
+---@field public values table<integer, integer>
 local Player = {}
 print(Player)
 

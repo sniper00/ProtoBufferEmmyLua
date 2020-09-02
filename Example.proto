@@ -31,6 +31,7 @@ message Player
     float luckyrate = 3;//玩家幸运值
     bool ok = 4;
     repeated Item items = 5;//玩家道具列表
+    map<int32, int32> values = 6;
 }
 
 enum Enum1 {
