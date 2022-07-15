@@ -80,7 +80,8 @@ def make_message(name, fields):
             else:
                 res += "---@field public %s %s\n" % (
                     line_tuple[2], to_lua_type(line_tuple[1]))
-    res += "M.%s = {}\n\n" % (name)
+    # res += "M.%s = {}\n\n" % (name)
+    res += "\n\n"
     return res
 
 def make_enum(name, fields):
@@ -112,10 +113,10 @@ class EmmyLuaIntelliSense:
         enum_name_re = re.compile(r'enum\s+(\w+)')
 
         message_field_re = re.compile(
-            r'\s+(repeated\s+)?(\w+)\s+(\w+)\s*=\s*(\d+);\s*(\/\/.*)?')
+            r'\s*(repeated)?\s*(\w+)\s+(\w+)\s*=\s*(\d+)\s*;\s*(\/\/.*)?')
         message_map_field_re = re.compile(
-            r'\s+(map)<(\w+)\s?,\s?(\w+)>\s+(\w+)\s*=\s*(\d+);\s*(\/\/.*)?')
-        enum_field_re = re.compile(r'\s+(\w+)\s*=\s*(\d+);\s*(\/\/.*)?')
+            r'\s*(map)\s*<\s*(\w+)\s*,\s*(\w+)\s*>\s+(\w+)\s*=\s*(\d+);\s*(\/\/.*)?')
+        enum_field_re = re.compile(r'\s*(\w+)\s*=\s*(\d+);\s*(\/\/.*)?')
 
         proto_list = list()
 
@@ -170,7 +171,8 @@ class EmmyLuaIntelliSense:
         return proto_list
     
     def make_proto_intellisense(self, proto_list):
-        message_content = "local M = {}\n\n"
+        # message_content = "local M = {}\n\n"
+        message_content = ""
         enum_content = ""
         enum_name_list = list()
 
